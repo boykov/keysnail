@@ -41,11 +41,11 @@ let ksPluginManager = (function () {
         let elem = document.createElement(name);
 
         if (attrs)
-            for (let [k, v] in Iterator(attrs))
+            for (let [k, v] of util.keyValues(attrs))
                 elem.setAttribute(k, v);
 
         if (childs)
-            for (let [, child] in Iterator(childs))
+            for (let child of childs)
                 elem.appendChild(child);
 
         return elem;
@@ -267,9 +267,9 @@ let ksPluginManager = (function () {
         // compatible version
 
         let versionMsg = "";
-        let (minVersion = pluginInfo.minKeySnailVersion,
-             maxVersion = pluginInfo.maxKeySnailVersion)
         {
+            let minVersion = pluginInfo.minKeySnailVersion,
+                maxVersion = pluginInfo.maxKeySnailVersion;
             if (minVersion)
                 versionMsg += util.getLocaleString("compatibleMinVersion", [minVersion]);
             if (maxVersion)
@@ -414,7 +414,7 @@ let ksPluginManager = (function () {
     function updateDisabledPluginList() {
         var disabledPlugins = [];
 
-        for (let [pluginPath, ] in Iterator(pluginInfoHolder)) {
+        for (let pluginPath of Object.keys(pluginInfoHolder)) {
             if (pluginInfoHolder[pluginPath].status === KS_PLUGIN_DISABLED) {
                 disabledPlugins.push(pluginPath);
             }

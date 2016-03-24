@@ -5,7 +5,7 @@
  * @license The MIT License
  */
 
-const hook = {
+var hook = {
     // ==== hooks ====
     hookList: {},               // all hooks are stored in it
 
@@ -54,7 +54,7 @@ const hook = {
         if (!hook)
             return;
 
-        for (let [i, action] in Iterator(hook)) {
+        for (let [i, action] of util.keyValues(hook)) {
             try {
                 action(arg);
             } catch (x) {

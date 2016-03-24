@@ -5,7 +5,7 @@
  * @license The MIT License
  */
 
-const ext = function () {
+var ext = function () {
     /**
      * @private
      */
@@ -25,7 +25,7 @@ const ext = function () {
         }
         keyList = keyList.sort();
 
-        for (let [, name] in Iterator(keyList))
+        for (let name of keyList)
             extList.push([name, exts[name].description || ""]);
 
         return extList;

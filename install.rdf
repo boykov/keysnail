@@ -6,7 +6,7 @@
     <Description about="urn:mozilla:install-manifest">
         <em:id>keysnail@mooz.github.com</em:id>
         <em:type>2</em:type> <!-- type of the addon, 2 means the extension -->
-        <em:version>2.1.7</em:version>
+        <em:version>2.2.0</em:version>
         <em:name>KeySnail</em:name>
         <em:creator>mooz</em:creator>
         <em:developer>mooz</em:developer>
@@ -18,6 +18,7 @@
         <em:contributor>usk</em:contributor>
         <em:contributor>Yuki Ibe</em:contributor>
         <em:contributor>Makoto Nakashima</em:contributor>
+        <em:contributor>gifnksm</em:contributor>
         <em:homepageURL>https://wiki.github.com/mooz/keysnail/</em:homepageURL>
         <em:optionsURL>chrome://keysnail/content/preference.xul</em:optionsURL>
         <em:iconURL>chrome://keysnail/skin/icon.png</em:iconURL>

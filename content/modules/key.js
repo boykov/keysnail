@@ -5,7 +5,7 @@
  * @license The MIT License
  */
 
-const key = {
+var key = {
     modules: null,
     // "modules" is automatically added
     // by KeySnail.initModule in keysnail.js
@@ -371,8 +371,8 @@ const key = {
 
         this.passAllKeys = true;
 
-        for (let [, keyStr] in Iterator(aKeys)) {
-            for (let [, type] in Iterator(aType)) {
+        for (let keyStr of aKeys) {
+            for (let type of aType) {
                 util.message("feed " + keyStr);
                 let event = this.stringToKeyEvent(keyStr, true, type, true);
                 // event.ksNoHandle becomes undefined while propagating
@@ -987,10 +987,11 @@ const key = {
                     keyCode = KeyEvent.DOM_VK_DELETE;
                     break;
                 default:
-                    let (keyName = aKey.replace(/^<|>$/g, "")) {
+                    {
+                        let keyName = aKey.replace(/^<|>$/g, "");
                         if (keyName in this.keyName2Code)
                             keyCode = this.keyName2Code[keyName];
-                    };
+                    }
                     break;
                 }
             }
@@ -1048,7 +1049,7 @@ const key = {
         var aTarget = this.keyMapHolder[aTargetKeyMapName];
         var aDestination = this.keyMapHolder[aDestinationKeyMapName];
 
-        for (let [property, value] in Iterator(aTarget))
+        for (let [property, value] of util.keyValues(aTarget))
             aDestination[property] = value;
     },
 
@@ -1103,7 +1104,7 @@ const key = {
         if (!(aKeyMapName instanceof Array))
             aKeyMapName = [aKeyMapName];
 
-        for (let [, keyMapName] in Iterator(aKeyMapName))
+        for (let keyMapName of aKeyMapName)
         {
             var addTo = this.keyMapHolder[keyMapName];
 
@@ -1347,7 +1348,7 @@ const key = {
         if (!aKeySequence)
             aKeySequence = [];
 
-        for (let [keyStr, cont] in Iterator(aKeyMap))
+        for (let [keyStr, cont] of util.keyValues(aKeyMap))
         {
             switch (typeof cont)
             {

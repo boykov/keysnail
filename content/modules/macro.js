@@ -5,7 +5,7 @@
  * @license The MIT License
  */
 
-const macro = {
+var macro = {
     init: function () {
         this.sleepTime = 10;
     },
@@ -34,7 +34,7 @@ const macro = {
         var len = aEvents.length;
         var sleepTime = this.sleepTime;
 
-        for (let [, event] in Iterator(aEvents))
+        for (let event of aEvents)
         {
             if (event.keyCode === KeyEvent.DOM_VK_TAB)
             {
